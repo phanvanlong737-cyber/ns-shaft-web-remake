@@ -207,6 +207,21 @@ describe('game integration', () => {
     expect(events.filter(event => event.type === 'hurt')).toHaveLength(1);
     expect(events.filter(event => event.type === 'land')).toHaveLength(1);
   });
+  test('moving back and forth on the same spike never charges again after immunity expires', () => {
+    const game = playing(), platform = block('spike', 1, 100, 420);
+    game.player.x = game.player.previousX = 137;
+    game.platforms = [platform]; game.land(platform);
+    for (let i = 0; i < 240; i++) {
+      const right = Math.floor(i / 20) % 2 === 0;
+      game.update(p.step, { right, left: !right });
+      expect(game.player.support).toBe(platform);
+      expect(game.player.hp).toBe(5);
+    }
+    expect(game.player.invincible).toBe(0); expect(game.state).toBe('playing');
+    const events = game.drainEvents();
+    expect(events.filter(event => event.type === 'hurt')).toHaveLength(1);
+    expect(events.filter(event => event.type === 'land')).toHaveLength(1);
+  });
   test.each([[true, 0], [true, 1], [false, 1]])('ceiling kills once (supported=%s, immunity=%s)', (supported, immunity) => {
     const game = playing(), platform = block('normal', 1, 100, 30);
     if (supported) { game.platforms = [platform]; game.land(platform); }

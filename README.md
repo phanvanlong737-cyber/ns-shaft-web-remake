@@ -56,7 +56,9 @@ Windows还会检测已安装Chrome/Edge；其他系统与CI运行Chromium、Fire
 
 所有SVG兼具源文件和运行时用途，可编辑；`node tools/generate-assets.mjs`重建9个原创资源。音频由Web Audio合成，没有外部采样。音乐与特效不会修改规则。美术规格见[art-guide](docs/art-guide.md)。
 
-![桌面界面](docs/screenshots/menu.png)
+桌面游戏区按可用窗口高度放大，1920×1080下宽620px，1280×720下约413px；显示比例始终为3:4，物理场地仍是360×480，窗口大小不改变移动速度或碰撞。
+
+![放大后的桌面界面](docs/screenshots/desktop-large.png)
 
 ## 复现与答辩
 
