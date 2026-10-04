@@ -6,7 +6,7 @@ export const classicProfile = Object.freeze({
   maxHp: 10, ceilingDamage: 5, spikeDamage: 5, healing: 1,
   invincibleSeconds: 1, fakeWarningSeconds: 0.3, fakeBreakSeconds: 0.6,
   springDelaySeconds: 0.2, step: 1 / 120,
-  platformsPerFloor: 5, floorsPerLevel: 5, speedIncrease: 0.1,
+  platformsPerFloor: 1, floorsPerLevel: 5, speedIncrease: 0.1,
   challengeFloor: 100, ceilingY: 12, generationAttempts: 20,
   weights: Object.freeze([
     ['normal', 0.28], ['spike', 0.19], ['fake', 0.17],

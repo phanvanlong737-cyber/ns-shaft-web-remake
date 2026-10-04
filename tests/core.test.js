@@ -139,12 +139,28 @@ describe('game integration', () => {
   });
   test('landing progression is monotonic, skips depth, and celebrates only once', () => {
     const game = playing();
-    game.land(block('normal', 505));
+    game.land(block('normal', 101));
     expect(game.floor).toBe(101); expect(game.scrollSpeed).toBe(420);
-    game.land(block('normal', 100)); game.land(block('normal', 510));
+    game.land(block('normal', 20)); game.land(block('normal', 102));
     expect(game.floor).toBe(102);
     expect(game.drainEvents().filter(e => e.type === 'challenge_complete')).toHaveLength(1);
     expect(game.state).toBe('playing');
+  });
+  test('each platform is one floor; skipped and repeated platforms use deepest depth', () => {
+    const game = playing();
+    for (const seq of [0, 1, 2, 3]) {
+      game.land(block('normal', seq));
+      expect(game.floor).toBe(seq);
+    }
+    game.land(block('normal', 7)); expect(game.floor).toBe(7);
+    game.land(block('normal', 7)); game.land(block('normal', 2));
+    expect(game.floor).toBe(7);
+    game.land(block('normal', 99)); expect(game.completed).toBe(false);
+    game.land(block('normal', 100));
+    expect(game.floor).toBe(100); expect(game.completed).toBe(true);
+    game.land(block('normal', 101));
+    expect(game.floor).toBe(101); expect(game.state).toBe('playing');
+    expect(game.drainEvents().filter(event => event.type === 'challenge_complete')).toHaveLength(1);
   });
   test('scroll accelerates every five floors and continues after floor 100', () => {
     const game = playing();

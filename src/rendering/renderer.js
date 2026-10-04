@@ -70,9 +70,9 @@ export class Renderer {
       const offset = (this.time * 28) % 80;
       c.fillRect(platform.type === 'conveyorLeft' ? 90 - offset : 10 + offset, 1, 5, 1);
     }
-    if (platform.seq > 0 && platform.seq % 5 === 0) {
+    if (platform.seq > 0) {
       c.globalAlpha = 0.35; c.font = '7px monospace'; c.fillStyle = '#b3cad4';
-      c.textAlign = 'center'; c.fillText(`— ${Math.floor(platform.seq / 5)} —`, 50, 24);
+      c.textAlign = 'center'; c.fillText(`— ${platform.seq} —`, 50, 24);
     }
     c.restore();
   }
