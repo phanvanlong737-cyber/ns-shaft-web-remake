@@ -44,7 +44,7 @@ export class View {
             <div class="tip"><span>↳ 小提示</span><p>别在同一块平台停留太久。<br>抬头是危险，向下是机会。</p></div>
           </aside>
         </main>
-        <footer class="page-footer"><span>经典玩法 · 原创重制</span><span>专注于下一次落地 <i>↓</i></span><span>LOCAL SCORES / NO ACCOUNT</span></footer>
+        <footer class="page-footer"><button data-action="credits" aria-label="查看制作信息">经典玩法 · 原创重制 ↗</button><span>专注于下一次落地 <i>↓</i></span><span>LOCAL SCORES / NO ACCOUNT</span></footer>
       </div>
       <dialog id="panel" aria-labelledby="panel-title"><div class="dialog-top"><span class="eyebrow" id="panel-kicker"></span><button data-action="close" class="close-button" aria-label="关闭面板">×</button></div><h2 id="panel-title"></h2><div id="panel-content"></div></dialog>
       <div id="toast" role="status" hidden></div>`;

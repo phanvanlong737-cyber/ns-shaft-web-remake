@@ -4,6 +4,7 @@ import { SaveStore } from './data/save.js';
 import { Input } from './ui/input.js';
 import { View } from './ui/view.js';
 import { Renderer } from './rendering/renderer.js';
+import { AudioSystem } from './rendering/audio.js';
 import './style.css';
 
 const root = document.querySelector('#app');
@@ -14,15 +15,17 @@ const renderer = new Renderer(view.canvas);
 let storage;
 try { storage = window.localStorage; } catch { storage = null; }
 const store = new SaveStore(storage);
+const audio = new AudioSystem(store.data.settings);
 let runKey = '';
 let previous = performance.now();
 
 function pause() {
   if (game.state !== 'playing') return;
-  game.pause(); loop.reset(); input.clear();
+  game.pause(); loop.reset(); input.clear(); audio.stopMusic();
   view.update(game.snapshot(store.data.bestFloor), store.data);
 }
 function resume() {
+  void audio.unlock();
   game.resume(); loop.reset(); input.clear(); previous = performance.now();
   view.update(game.snapshot(store.data.bestFloor), store.data);
 }
@@ -36,6 +39,7 @@ input.bindTouch(root.querySelector('#touch-left'), 'left');
 input.bindTouch(root.querySelector('#touch-right'), 'right');
 
 function start(seed) {
+  void audio.unlock(); audio.stopMusic();
   if (view.dialog.open) view.dialog.close();
   const random = new Uint32Array(1); crypto.getRandomValues(random);
   game.start(seed ?? random[0]);
@@ -51,11 +55,12 @@ root.addEventListener('click', event => {
   if (!button || button.disabled) return;
   event.preventDefault();
   const action = button.dataset.action;
+  void audio.unlock().then(() => audio.playSfx('ui_click'));
   if (action === 'start' || action === 'restart') start();
   else if (action === 'pause') togglePause();
   else if (action === 'resume') resume();
   else if (action === 'menu') {
-    game.menu(); input.clear(); loop.reset(); renderer.clear(); view.clearMilestone();
+    game.menu(); input.clear(); loop.reset(); renderer.clear(); audio.stopMusic(); view.clearMilestone();
     if (view.dialog.open) view.dialog.close();
     view.update(game.snapshot(store.data.bestFloor), store.data);
   } else if (action === 'close') view.dialog.close();
@@ -81,11 +86,15 @@ view.dialog.addEventListener('input', event => {
   if (!Object.hasOwn(store.data.settings, control.name)) return;
   const value = control.type === 'checkbox' ? control.checked : Number(control.value);
   store.updateSettings({ [control.name]: value });
+  audio.setSettings(store.data.settings);
   const output = control.parentElement.querySelector('output');
   if (output) output.textContent = `${Math.round(value * 100)}%`;
 });
 
 view.update(game.snapshot(store.data.bestFloor), store.data);
+renderer.ready.then(() => {
+  if (renderer.failedAssets.length) view.toast('部分图形加载失败，请刷新页面。');
+});
 function frame(now) {
   const seconds = Math.max(0, (now - previous) / 1000);
   const alpha = loop.advance(seconds, input.read());
@@ -96,9 +105,12 @@ function frame(now) {
     if (event.type === 'game_over') {
       const newRecord = game.floor > store.data.bestFloor;
       store.rememberBest(game.floor);
-      if (newRecord) view.toast('新的最佳纪录！');
+      audio.stopMusic();
+      if (newRecord) { view.toast('新的最佳纪录！'); audio.playSfx('new_record'); }
     }
   }
+  for (const event of events) audio.playSfx(event.type);
+  audio.update(game.state);
   renderer.handleEvents(events, game, store.data.settings);
   renderer.render(game, alpha, Math.min(seconds, 0.1), store.data.settings);
   view.update(game.snapshot(store.data.bestFloor), store.data);
