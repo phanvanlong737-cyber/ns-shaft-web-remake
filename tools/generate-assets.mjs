@@ -15,15 +15,16 @@ files['player.svg'] = svg(26, 32, `
   <rect x="11" y="1" width="4" height="3" rx="1" fill="#ffcc72"/>
   <circle cx="13" cy="23" r="2" fill="#ffcc72"/>
 `);
-const base = (color, inner = '') => `<rect x="1" y="12" width="98" height="11" rx="4" fill="#142d38" stroke="${color}" stroke-opacity=".7"/><rect x="3" y="12" width="94" height="3" rx="1.5" fill="${color}"/><path d="M9 19h9m64 0h9" stroke="${color}" stroke-opacity=".35"/>${inner}`;
-files['platform_normal.svg'] = svg(100, 24, base('#68d7ca', '<path d="M29 18h42" stroke="#68d7ca" stroke-opacity=".25"/>'));
-files['platform_spike.svg'] = svg(100, 24, base('#ff6e88', '<path d="M3 12 11 1 19 12 27 1 35 12 43 1 51 12 59 1 67 12 75 1 83 12 91 1 99 12" fill="#ff6e88"/><path d="M11 5 14 10M27 5 30 10M43 5 46 10M59 5 62 10M75 5 78 10M91 5 94 10" stroke="#ffb6c4" stroke-width="1"/>'));
+const base = (color, inner = '') => `<rect x="1" y="12" width="98" height="11" rx="4" fill="${color}" fill-opacity=".3" stroke="${color}"/><rect x="3" y="12" width="94" height="3" rx="1.5" fill="${color}"/><path d="M9 19h9m64 0h9" stroke="${color}" stroke-opacity=".8"/>${inner}`;
+files['platform_normal.svg'] = svg(100, 24, base('#65f080', '<path d="M29 18h42" stroke="#65f080" stroke-opacity=".7"/>'));
+files['platform_spike.svg'] = svg(100, 24, base('#ff3b5c', '<path d="M3 12 11 1 19 12 27 1 35 12 43 1 51 12 59 1 67 12 75 1 83 12 91 1 99 12" fill="#ff3b5c"/><path d="M11 5 14 10M27 5 30 10M43 5 46 10M59 5 62 10M75 5 78 10M91 5 94 10" stroke="#ffb6c4" stroke-width="1"/>'));
 for (const [type, direction] of [['conveyorLeft', -1], ['conveyorRight', 1]]) {
-  const arrows = [30, 47, 64].map(x => `<path d="m${x + (direction < 0 ? 5 : 0)} 16 ${direction * 4} 3 ${-direction * 4} 3" fill="none" stroke="#9bb2ff" stroke-width="1.5"/>`).join('');
-  files[`platform_${type}.svg`] = svg(100, 24, base('#839ffb', `<circle cx="8" cy="18" r="2" fill="#839ffb"/><circle cx="92" cy="18" r="2" fill="#839ffb"/>${arrows}`));
+  const color = direction < 0 ? '#39baff' : '#e56dff';
+  const arrows = [30, 47, 64].map(x => `<path d="m${x + (direction < 0 ? 5 : 0)} 16 ${direction * 4} 3 ${-direction * 4} 3" fill="none" stroke="#f4fbff" stroke-width="1.5"/>`).join('');
+  files[`platform_${type}.svg`] = svg(100, 24, base(color, `<circle cx="8" cy="18" r="2" fill="${color}"/><circle cx="92" cy="18" r="2" fill="${color}"/>${arrows}`));
 }
-files['platform_fake.svg'] = svg(100, 24, base('#ba97dc', '<path d="m43 12 6 4-4 3 7 4M68 12l-5 4 4 4M22 14l3 4-3 2" stroke="#ba97dc" fill="none" stroke-width="1.4"/>'));
-files['platform_spring.svg'] = svg(100, 24, '<rect x="2" y="12" width="96" height="3" rx="1.5" fill="#f5c76b"/><rect x="2" y="22" width="96" height="2" rx="1" fill="#99783e"/><path d="m17 15 7 2-7 2 7 2m20-6 7 2-7 2 7 2m20-6 7 2-7 2 7 2" stroke="#f5c76b" stroke-width="1.5" fill="none"/><path d="m46 8 4-5 4 5" stroke="#f5c76b" stroke-width="1.5" fill="none"/>');
+files['platform_fake.svg'] = svg(100, 24, base('#ff9440', '<path d="m43 12 6 4-4 3 7 4M68 12l-5 4 4 4M22 14l3 4-3 2" stroke="#fff2d8" fill="none" stroke-width="1.6"/>'));
+files['platform_spring.svg'] = svg(100, 24, '<rect x="2" y="12" width="96" height="3" rx="1.5" fill="#ffe45c"/><rect x="2" y="22" width="96" height="2" rx="1" fill="#c9b43e"/><path d="m17 15 7 2-7 2 7 2m20-6 7 2-7 2 7 2m20-6 7 2-7 2 7 2" stroke="#ffe45c" stroke-width="1.8" fill="none"/><path d="m46 8 4-5 4 5" stroke="#ffe45c" stroke-width="1.8" fill="none"/>');
 files['background.svg'] = svg(360, 480, `
   <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#102331"/><stop offset="1" stop-color="#0d1422"/></linearGradient><pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#75bea3" stroke-opacity=".045"/></pattern></defs>
   <path fill="url(#bg)" d="M0 0h360v480H0z"/><path fill="url(#grid)" d="M0 0h360v480H0z"/>

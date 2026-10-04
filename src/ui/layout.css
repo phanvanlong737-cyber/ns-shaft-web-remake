@@ -84,11 +84,12 @@ canvas { display: block; width: 100%; height: 100%; }
 .section-label > span { font: 8px monospace; letter-spacing: 1px; color: #64798c; }
 .legend { display: flex; gap: 12px; align-items: center; margin: 16px 0; }
 .platform-symbol { display: grid; place-items: center; width: 35px; height: 28px; border-radius: 6px; font: 20px monospace; flex-shrink: 0; }
-.normal { color: #68d7ca; background: #68d7ca0e; }
-.spike { color: #ff6e88; background: #ff6e880e; }
-.conveyorLeft, .conveyorRight { color: #839ffb; background: #839ffb0e; }
-.fake { color: #ba97dc; background: #ba97dc0e; }
-.spring { color: #f5c76b; background: #f5c76b0e; }
+.normal { color: #65f080; background: #65f08026; }
+.spike { color: #ff3b5c; background: #ff3b5c26; }
+.conveyorLeft { color: #39baff; background: #39baff26; }
+.conveyorRight { color: #e56dff; background: #e56dff26; }
+.fake { color: #ff9440; background: #ff944026; }
+.spring { color: #ffe45c; background: #ffe45c26; }
 .legend strong { display: block; font-size: 10px; font-weight: 500; }
 .legend small { display: block; font-size: 9px; color: var(--muted); margin-top: 4px; }
 .tip { padding: 15px; border: 1px solid var(--line); border-radius: 8px; margin-top: 22px; background: #ffffff02; }

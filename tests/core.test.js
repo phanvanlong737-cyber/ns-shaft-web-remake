@@ -66,14 +66,21 @@ describe('platform mechanisms', () => {
   test('fake timer persists across leaving and relanding', () => {
     const hero = new Player(p), platform = block('fake');
     hero.support = platform; platform.onLand(hero, noop);
-    platform.update(0.3, noop);
+    platform.update(0.15, noop);
     expect(platform.state).toBe('cracking');
-    platform.onLeave(hero); platform.update(0.1, noop);
+    platform.onLeave(hero); platform.update(0.05, noop);
     hero.support = platform; platform.onLand(hero, noop);
-    platform.update(0.2, noop);
+    platform.update(0.1, noop);
     expect(platform.solid).toBe(false);
     expect(hero.support).toBeNull();
     expect(platform.getCollisionBox().height).toBe(12);
+  });
+  test('fake loses collision at 300ms, not before', () => {
+    const hero = new Player(p), platform = block('fake');
+    hero.support = platform; platform.onLand(hero, noop);
+    platform.update(0.299, noop); expect(platform.solid).toBe(true);
+    platform.update(0.001, noop); expect(platform.solid).toBe(false);
+    expect(hero.support).toBeNull();
   });
   test('spring launches at 200ms only if occupant remains', () => {
     const hero = new Player(p), platform = block('spring');
@@ -189,11 +196,27 @@ describe('game integration', () => {
     expect(game.player.hp).toBe(10); expect(game.player.support).toBeNull();
     expect(game.floor).toBe(0); expect(game.runTime).toBe(0); expect(game.events).toEqual([{ type: 'start' }]);
   });
-  test('ceiling detaches supported player and applies protected damage', () => {
-    const game = playing(), platform = block('normal', 5, 100, 30);
-    game.platforms = [platform]; game.land(platform); game.update(p.step, {});
-    expect(game.player.support).toBeNull(); expect(game.player.hp).toBe(5);
-    game.player.y = 0; game.update(p.step, {}); expect(game.player.hp).toBe(5);
+  test('spike charges only on landing, never while standing after immunity expires', () => {
+    const game = playing(), platform = block('spike', 1, 100, 420);
+    game.player.x = game.player.previousX = 120;
+    game.platforms = [platform]; game.land(platform);
+    for (let i = 0; i < 180; i++) game.update(p.step, {});
+    expect(game.state).toBe('playing'); expect(game.player.support).toBe(platform);
+    expect(game.player.invincible).toBe(0); expect(game.player.hp).toBe(5);
+    const events = game.drainEvents();
+    expect(events.filter(event => event.type === 'hurt')).toHaveLength(1);
+    expect(events.filter(event => event.type === 'land')).toHaveLength(1);
+  });
+  test.each([[true, 0], [true, 1], [false, 1]])('ceiling kills once (supported=%s, immunity=%s)', (supported, immunity) => {
+    const game = playing(), platform = block('normal', 1, 100, 30);
+    if (supported) { game.platforms = [platform]; game.land(platform); }
+    else { game.player.y = p.ceilingY + 0.1; game.player.vy = -100; }
+    game.player.invincible = immunity;
+    game.update(p.step, {}); game.update(p.step, {});
+    expect(game.state).toBe('result'); expect(game.reason).toBe('ceiling');
+    expect(game.player.support).toBeNull(); expect(game.player.hp).toBe(0);
+    expect(platform.occupant).toBeNull();
+    expect(game.drainEvents().filter(event => event.type === 'game_over')).toHaveLength(1);
   });
   test.each(['hp', 'fall'])('%s death occurs once, even during immunity', reason => {
     const game = playing(); game.player.invincible = 1;

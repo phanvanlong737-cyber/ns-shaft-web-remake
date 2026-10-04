@@ -1,7 +1,7 @@
 import { assetManifest } from '../data/assets.js';
 
-const colors = { normal: '#68d7ca', spike: '#ff6e88', fake: '#ba97dc',
-  spring: '#f5c76b', conveyorLeft: '#839ffb', conveyorRight: '#839ffb' };
+const colors = { normal: '#65f080', spike: '#ff3b5c', fake: '#ff9440',
+  spring: '#ffe45c', conveyorLeft: '#39baff', conveyorRight: '#e56dff' };
 
 export class Renderer {
   constructor(canvas) {
@@ -66,7 +66,7 @@ export class Renderer {
     else { c.fillStyle = colors[platform.type]; c.fillRect(0, 0, 100, 12); }
     c.shadowBlur = 0;
     if (platform.type.startsWith('conveyor') && !reducedMotion) {
-      c.fillStyle = '#c4d0ff'; c.globalAlpha = 0.6;
+      c.fillStyle = '#f4fbff'; c.globalAlpha = 0.8;
       const offset = (this.time * 28) % 80;
       c.fillRect(platform.type === 'conveyorLeft' ? 90 - offset : 10 + offset, 1, 5, 1);
     }
@@ -148,8 +148,8 @@ export class Renderer {
       c.fillRect(particle.x, particle.y, particle.size, particle.size);
     }
     c.globalAlpha = 1;
-    c.fillStyle = '#ff6e8845'; c.fillRect(0, 0, 360, 2);
-    c.fillStyle = '#cf738166'; c.beginPath();
+    c.fillStyle = '#ff3b5c'; c.fillRect(0, 0, 360, 2);
+    c.fillStyle = '#ff3b5ccc'; c.beginPath();
     for (let x = 0; x < 360; x += 12) { c.moveTo(x, 0); c.lineTo(x + 6, 11); c.lineTo(x + 12, 0); }
     c.fill(); c.restore();
   }

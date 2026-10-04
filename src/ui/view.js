@@ -1,6 +1,6 @@
 const symbols = { normal: '━', spike: '▴▴', conveyorLeft: '≪', conveyorRight: '≫', fake: '⌁', spring: '↟' };
 const names = { normal: '普通平台', spike: '尖刺平台', conveyorLeft: '左传送带', conveyorRight: '右传送带', fake: '易碎平台', spring: '弹簧平台' };
-const hints = { normal: '安全落地 · 回复生命', spike: '危险尖刺 · 损失生命', conveyorLeft: '向左推送 · 离开解除', conveyorRight: '向右推送 · 离开解除', fake: '短暂停留 · 随后塌陷', spring: '压缩蓄力 · 向上弹射' };
+const hints = { normal: '安全落地 · 回复生命', spike: '落地扣血 · 站立不连扣', conveyorLeft: '向左推送 · 离开解除', conveyorRight: '向右推送 · 离开解除', fake: '落地300ms后塌陷', spring: '压缩蓄力 · 向上弹射' };
 
 export function formatTime(seconds) {
   return `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
@@ -77,7 +77,8 @@ export class View {
         $('result-floor').textContent = snapshot.floor.toString().padStart(3, '0');
         $('result-time').textContent = formatTime(snapshot.runTime);
         $('result-best').textContent = Math.max(saved.bestFloor, snapshot.floor).toString().padStart(3, '0');
-        $('result-message').textContent = snapshot.reason === 'fall' ? '这次没抓住平台。下次，再深一点。' : '生命耗尽了。休整一下，再出发。';
+        $('result-message').textContent = snapshot.reason === 'ceiling' ? '碰到了顶部尖刺。下一次，及时向下。' :
+          snapshot.reason === 'fall' ? '这次没抓住平台。下次，再深一点。' : '生命耗尽了。休整一下，再出发。';
         $('result-badge').textContent = snapshot.completed ? '100层挑战已完成' : '本次下潜结束';
         $('nickname').value = saved.nickname === '玩家' ? '' : saved.nickname;
         $('submit-score').disabled = false;

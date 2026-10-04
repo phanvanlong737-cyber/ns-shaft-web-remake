@@ -119,14 +119,11 @@ export class Game {
       const landing = findLanding(player, this.platforms);
       if (landing) this.land(landing);
     }
-    if (player.y < p.ceilingY) {
-      if (player.support) player.support.onLeave(player);
+    if (player.y <= p.ceilingY) {
       player.y = p.ceilingY;
-      player.vy = Math.max(0, player.vy);
-      const amount = player.takeDamage(p.ceilingDamage);
-      if (amount) this.emit('hurt', { amount, source: 'ceiling' });
-    }
-    if (player.hp <= 0) this.die('hp');
+      player.hp = 0;
+      this.die('ceiling');
+    } else if (player.hp <= 0) this.die('hp');
     else if (player.y > p.height) this.die('fall');
     this.platforms = this.platforms.filter(platform => {
       if (platform.y + platform.height >= 0) return true;
