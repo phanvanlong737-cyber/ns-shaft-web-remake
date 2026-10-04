@@ -11,6 +11,8 @@
 - npm audit --omit=dev：运行依赖漏洞0。运行时不包含第三方服务。
 - 桌面1280×720与手机390×844截图已视觉检查，无横向溢出，场地3:4未变形。窗口960×540与844×390也经自动检查。
 - 用户首轮反馈“太容易”已通过4399同页原SWF静态研究处理；记录见difficulty-research.md，新难度待用户复试玩。
+- GitHub Actions在Linux通过34项规则测试及28项浏览器测试（2项桌面触控按设计跳过），然后完成Pages部署。Firefox音频检查使用PulseAudio虚拟输出并等待异步解锁；不把虚拟输出当成人工听感验收。
+- 公网 https://phanvanlong737-cyber.github.io/ns-shaft-web-remake/ 返回200；资源无404，开始、移动、暂停、刷新均通过，生产测试钩子不存在。证据见qa/public-smoke.json。
 
 原始浏览器报告、生产烟测、依赖许可清单位于qa目录。工具链：Windows、Node24.21.0、npm11.19.0、Vite8.3.2、Vitest5.0.3。
 

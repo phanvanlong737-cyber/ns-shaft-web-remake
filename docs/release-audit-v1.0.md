@@ -15,6 +15,6 @@
 | 子路径生产构建 | 通过 | qa/build-smoke.json |
 | 来源与许可 | 通过清单审计 | THIRD_PARTY_NOTICES、素材/依赖清单 |
 | 难度体验 | 第一轮修正、复试玩待验 | 用户反馈及difficulty-research |
-| GitHub与Pages | 配置中 | 完成后补充公网证据 |
+| GitHub与Pages | 已部署、公网烟测通过 | qa/public-smoke.json；GitHub Actions检查通过 |
 
 已知阻断/高优先级缺陷为0；未完成的人工验收仍阻止正式v1.0。候选发布不等于宣称全部目标已完成。

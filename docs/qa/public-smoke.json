@@ -1,0 +1,14 @@
+{
+  "testedAt": "2026-10-04T07:46:09.020Z",
+  "url": "https://phanvanlong737-cyber.github.io/ns-shaft-web-remake/",
+  "status": 200,
+  "scripts": [
+    "https://phanvanlong737-cyber.github.io/ns-shaft-web-remake/assets/index-BRfEDfwt.js"
+  ],
+  "browser": "153.0.8010.12",
+  "menuPlayPauseReload": true,
+  "productionHookAbsent": true,
+  "errors": [],
+  "failures": [],
+  "passed": true
+}
