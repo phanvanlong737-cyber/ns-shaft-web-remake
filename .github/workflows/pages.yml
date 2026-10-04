@@ -26,6 +26,10 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium firefox
+      - name: Start audio backend for Firefox Web Audio checks
+        run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
       - run: npm run test:e2e
       - run: node tools/verify-build.mjs
       - uses: actions/configure-pages@v5
