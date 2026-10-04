@@ -154,12 +154,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2573,
+                  "duration": 1508,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:20:56.830Z",
+                  "startTime": "2026-10-04T09:23:55.518Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -188,12 +188,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1074,
+                  "duration": 950,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:00.023Z",
+                  "startTime": "2026-10-04T09:23:57.366Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -222,12 +222,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 831,
+                  "duration": 846,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:01.108Z",
+                  "startTime": "2026-10-04T09:23:58.325Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -256,12 +256,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 781,
+                  "duration": 711,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:01.952Z",
+                  "startTime": "2026-10-04T09:23:59.182Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -290,12 +290,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 555,
+                  "duration": 503,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:02.745Z",
+                  "startTime": "2026-10-04T09:23:59.905Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -307,6 +307,74 @@
           "file": "game.spec.js",
           "line": 72,
           "column": 1
+        },
+        {
+          "title": "spike right edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:00.415Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-5d443c61728edb2b2724",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
+        },
+        {
+          "title": "spike left edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:00.882Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-b95f55ce37649631e2a9",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
         },
         {
           "title": "viewport keeps physical aspect ratio and no horizontal overflow",
@@ -324,12 +392,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 601,
+                  "duration": 491,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:03.312Z",
+                  "startTime": "2026-10-04T09:24:01.354Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -339,7 +407,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-594e3f866b7cc90d5e2e",
           "file": "game.spec.js",
-          "line": 81,
+          "line": 101,
           "column": 1
         },
         {
@@ -355,7 +423,7 @@
                   "description": "Touch UI only",
                   "location": {
                     "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                    "line": 93,
+                    "line": 113,
                     "column": 8
                   }
                 }
@@ -368,19 +436,19 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 428,
+                  "duration": 380,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:03.925Z",
+                  "startTime": "2026-10-04T09:24:01.853Z",
                   "annotations": [
                     {
                       "type": "skip",
                       "description": "Touch UI only",
                       "location": {
                         "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                        "line": 93,
+                        "line": 113,
                         "column": 8
                       }
                     }
@@ -393,7 +461,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-3801c42c5b13ba99f482",
           "file": "game.spec.js",
-          "line": 92,
+          "line": 112,
           "column": 1
         },
         {
@@ -412,12 +480,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 671,
+                  "duration": 635,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:04.364Z",
+                  "startTime": "2026-10-04T09:24:02.243Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -427,7 +495,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-86bf94d0b979b5ffeebd",
           "file": "game.spec.js",
-          "line": 105,
+          "line": 125,
           "column": 1
         },
         {
@@ -446,12 +514,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1026,
+                  "duration": 1056,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:05.044Z",
+                  "startTime": "2026-10-04T09:24:02.886Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -461,7 +529,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-5f1f8221bf7e8236b9bd",
           "file": "game.spec.js",
-          "line": 123,
+          "line": 143,
           "column": 1
         },
         {
@@ -480,12 +548,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 969,
+                  "duration": 857,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:06.080Z",
+                  "startTime": "2026-10-04T09:24:03.951Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -495,7 +563,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-caf28005dceefcecf583",
           "file": "game.spec.js",
-          "line": 143,
+          "line": 163,
           "column": 1
         },
         {
@@ -514,12 +582,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2358,
+                  "duration": 1281,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:20:56.832Z",
+                  "startTime": "2026-10-04T09:23:55.532Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -548,12 +616,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 992,
+                  "duration": 784,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:20:59.955Z",
+                  "startTime": "2026-10-04T09:23:57.544Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -582,12 +650,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 878,
+                  "duration": 833,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:00.960Z",
+                  "startTime": "2026-10-04T09:23:58.338Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -616,12 +684,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 782,
+                  "duration": 681,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:01.850Z",
+                  "startTime": "2026-10-04T09:23:59.181Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -650,12 +718,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 587,
+                  "duration": 513,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:02.644Z",
+                  "startTime": "2026-10-04T09:23:59.872Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -667,6 +735,74 @@
           "file": "game.spec.js",
           "line": 72,
           "column": 1
+        },
+        {
+          "title": "spike right edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 503,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:00.401Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-bf79453d18621d3e04b9",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
+        },
+        {
+          "title": "spike left edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 494,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:00.913Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-8c10d32ddfe74cbf20bf",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
         },
         {
           "title": "viewport keeps physical aspect ratio and no horizontal overflow",
@@ -684,12 +820,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 636,
+                  "duration": 562,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:03.246Z",
+                  "startTime": "2026-10-04T09:24:01.417Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -699,7 +835,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-22bf1f89e4213c1cc3ca",
           "file": "game.spec.js",
-          "line": 81,
+          "line": 101,
           "column": 1
         },
         {
@@ -715,7 +851,7 @@
                   "description": "Touch UI only",
                   "location": {
                     "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                    "line": 93,
+                    "line": 113,
                     "column": 8
                   }
                 }
@@ -728,19 +864,19 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "skipped",
-                  "duration": 488,
+                  "duration": 426,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:03.893Z",
+                  "startTime": "2026-10-04T09:24:01.988Z",
                   "annotations": [
                     {
                       "type": "skip",
                       "description": "Touch UI only",
                       "location": {
                         "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                        "line": 93,
+                        "line": 113,
                         "column": 8
                       }
                     }
@@ -753,7 +889,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-024acd15063e22296518",
           "file": "game.spec.js",
-          "line": 92,
+          "line": 112,
           "column": 1
         },
         {
@@ -772,12 +908,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 713,
+                  "duration": 663,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:04.392Z",
+                  "startTime": "2026-10-04T09:24:02.425Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -787,7 +923,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-177d9c990075fc601c6a",
           "file": "game.spec.js",
-          "line": 105,
+          "line": 125,
           "column": 1
         },
         {
@@ -806,12 +942,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 870,
+                  "duration": 783,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:05.115Z",
+                  "startTime": "2026-10-04T09:24:03.097Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -821,7 +957,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-1a793835eb26fce7e04a",
           "file": "game.spec.js",
-          "line": 123,
+          "line": 143,
           "column": 1
         },
         {
@@ -840,12 +976,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 994,
+                  "duration": 867,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:05.995Z",
+                  "startTime": "2026-10-04T09:24:03.889Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -855,7 +991,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-40bc8f44447051a06b28",
           "file": "game.spec.js",
-          "line": 143,
+          "line": 163,
           "column": 1
         },
         {
@@ -874,12 +1010,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1613,
+                  "duration": 1254,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:08.190Z",
+                  "startTime": "2026-10-04T09:24:05.795Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -908,12 +1044,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1004,
+                  "duration": 837,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:10.415Z",
+                  "startTime": "2026-10-04T09:24:07.610Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -942,12 +1078,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1020,
+                  "duration": 953,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:11.434Z",
+                  "startTime": "2026-10-04T09:24:08.458Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -976,12 +1112,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 815,
+                  "duration": 708,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:12.466Z",
+                  "startTime": "2026-10-04T09:24:09.421Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1010,12 +1146,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 686,
+                  "duration": 550,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:13.295Z",
+                  "startTime": "2026-10-04T09:24:10.139Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1027,6 +1163,74 @@
           "file": "game.spec.js",
           "line": 72,
           "column": 1
+        },
+        {
+          "title": "spike right edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 499,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:10.701Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-3b1d0256a76075b64373",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
+        },
+        {
+          "title": "spike left edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 501,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:11.207Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-62909214e5d8677ff8c5",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
         },
         {
           "title": "viewport keeps physical aspect ratio and no horizontal overflow",
@@ -1044,12 +1248,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 713,
+                  "duration": 573,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:13.995Z",
+                  "startTime": "2026-10-04T09:24:11.718Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1059,7 +1263,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-2d658ee48ecc17305f1f",
           "file": "game.spec.js",
-          "line": 81,
+          "line": 101,
           "column": 1
         },
         {
@@ -1075,7 +1279,7 @@
                   "description": "Touch UI only",
                   "location": {
                     "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                    "line": 93,
+                    "line": 113,
                     "column": 8
                   }
                 }
@@ -1088,19 +1292,19 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "skipped",
-                  "duration": 508,
+                  "duration": 467,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:14.720Z",
+                  "startTime": "2026-10-04T09:24:12.301Z",
                   "annotations": [
                     {
                       "type": "skip",
                       "description": "Touch UI only",
                       "location": {
                         "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                        "line": 93,
+                        "line": 113,
                         "column": 8
                       }
                     }
@@ -1113,7 +1317,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-cdd5ba431c6a3d91741f",
           "file": "game.spec.js",
-          "line": 92,
+          "line": 112,
           "column": 1
         },
         {
@@ -1132,12 +1336,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 817,
+                  "duration": 704,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:15.240Z",
+                  "startTime": "2026-10-04T09:24:12.779Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1147,7 +1351,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-3cbde6aa633f3a9c9aa9",
           "file": "game.spec.js",
-          "line": 105,
+          "line": 125,
           "column": 1
         },
         {
@@ -1166,12 +1370,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 996,
+                  "duration": 800,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:16.069Z",
+                  "startTime": "2026-10-04T09:24:13.492Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1181,7 +1385,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-117d85556aa6ac38af7a",
           "file": "game.spec.js",
-          "line": 123,
+          "line": 143,
           "column": 1
         },
         {
@@ -1200,12 +1404,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1066,
+                  "duration": 875,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:17.078Z",
+                  "startTime": "2026-10-04T09:24:14.299Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1215,7 +1419,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-f1917969bf681c2b1ebb",
           "file": "game.spec.js",
-          "line": 143,
+          "line": 163,
           "column": 1
         },
         {
@@ -1234,12 +1438,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4680,
+                  "duration": 3871,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:08.019Z",
+                  "startTime": "2026-10-04T09:24:05.576Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1268,12 +1472,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1544,
+                  "duration": 1285,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:13.954Z",
+                  "startTime": "2026-10-04T09:24:10.595Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1302,12 +1506,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1207,
+                  "duration": 1078,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:15.513Z",
+                  "startTime": "2026-10-04T09:24:11.890Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1336,12 +1540,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1062,
+                  "duration": 916,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:16.734Z",
+                  "startTime": "2026-10-04T09:24:12.979Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1370,12 +1574,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 736,
+                  "duration": 673,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:17.811Z",
+                  "startTime": "2026-10-04T09:24:13.908Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1387,6 +1591,74 @@
           "file": "game.spec.js",
           "line": 72,
           "column": 1
+        },
+        {
+          "title": "spike right edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:14.592Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-f98a0b67f250c5aab80f",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
+        },
+        {
+          "title": "spike left edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 560,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:15.261Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-358ca5a422111197e150",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
         },
         {
           "title": "viewport keeps physical aspect ratio and no horizontal overflow",
@@ -1404,12 +1676,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 817,
+                  "duration": 893,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:18.562Z",
+                  "startTime": "2026-10-04T09:24:15.828Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1419,7 +1691,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-aff4df76e73e18526174",
           "file": "game.spec.js",
-          "line": 81,
+          "line": 101,
           "column": 1
         },
         {
@@ -1435,7 +1707,7 @@
                   "description": "Touch UI only",
                   "location": {
                     "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                    "line": 93,
+                    "line": 113,
                     "column": 8
                   }
                 }
@@ -1448,19 +1720,19 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 472,
+                  "duration": 499,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:19.390Z",
+                  "startTime": "2026-10-04T09:24:16.728Z",
                   "annotations": [
                     {
                       "type": "skip",
                       "description": "Touch UI only",
                       "location": {
                         "file": "D:\\是男人就下一百层\\tests\\browser\\game.spec.js",
-                        "line": 93,
+                        "line": 113,
                         "column": 8
                       }
                     }
@@ -1473,7 +1745,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-fe62ef2fe4dcfb0741e6",
           "file": "game.spec.js",
-          "line": 92,
+          "line": 112,
           "column": 1
         },
         {
@@ -1492,12 +1764,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 958,
+                  "duration": 1906,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:19.880Z",
+                  "startTime": "2026-10-04T09:24:17.234Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1507,7 +1779,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-a29bc90558744bddf1a0",
           "file": "game.spec.js",
-          "line": 105,
+          "line": 125,
           "column": 1
         },
         {
@@ -1526,12 +1798,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1378,
+                  "duration": 1298,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:20.848Z",
+                  "startTime": "2026-10-04T09:24:19.149Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1541,7 +1813,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-c8fc26512ec77fae318c",
           "file": "game.spec.js",
-          "line": 123,
+          "line": 143,
           "column": 1
         },
         {
@@ -1560,12 +1832,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2176,
+                  "duration": 1024,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:22.236Z",
+                  "startTime": "2026-10-04T09:24:20.454Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1575,7 +1847,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-8ff668fe018fda8baa8a",
           "file": "game.spec.js",
-          "line": 143,
+          "line": 163,
           "column": 1
         },
         {
@@ -1594,12 +1866,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1670,
+                  "duration": 1582,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:19.450Z",
+                  "startTime": "2026-10-04T09:24:16.348Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1628,12 +1900,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1183,
+                  "duration": 920,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:21.711Z",
+                  "startTime": "2026-10-04T09:24:18.474Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1662,12 +1934,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1009,
+                  "duration": 835,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:22.905Z",
+                  "startTime": "2026-10-04T09:24:19.403Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1696,12 +1968,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 754,
+                  "duration": 705,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:23.926Z",
+                  "startTime": "2026-10-04T09:24:20.247Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1730,12 +2002,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 641,
+                  "duration": 603,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:24.692Z",
+                  "startTime": "2026-10-04T09:24:20.962Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1747,6 +2019,74 @@
           "file": "game.spec.js",
           "line": 72,
           "column": 1
+        },
+        {
+          "title": "spike right edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 477,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:21.575Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-d46ab82273d15b8dbaa8",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
+        },
+        {
+          "title": "spike left edge departure preserves five HP and never shows death",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 494,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-04T09:24:22.058Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8739d194ba1dcb8a2e3d-813960312dca3c5e2362",
+          "file": "game.spec.js",
+          "line": 82,
+          "column": 3
         },
         {
           "title": "viewport keeps physical aspect ratio and no horizontal overflow",
@@ -1764,12 +2104,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 711,
+                  "duration": 655,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:25.346Z",
+                  "startTime": "2026-10-04T09:24:22.560Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1779,7 +2119,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-c05daab4548d6df42ede",
           "file": "game.spec.js",
-          "line": 81,
+          "line": 101,
           "column": 1
         },
         {
@@ -1798,12 +2138,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 550,
+                  "duration": 479,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:26.066Z",
+                  "startTime": "2026-10-04T09:24:23.222Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1813,7 +2153,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-782941bf3abeec53ae62",
           "file": "game.spec.js",
-          "line": 92,
+          "line": 112,
           "column": 1
         },
         {
@@ -1832,12 +2172,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 653,
+                  "duration": 574,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:26.626Z",
+                  "startTime": "2026-10-04T09:24:23.707Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1847,7 +2187,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-3c6aa29aafcfa779f3f0",
           "file": "game.spec.js",
-          "line": 105,
+          "line": 125,
           "column": 1
         },
         {
@@ -1866,12 +2206,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 959,
+                  "duration": 805,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:27.288Z",
+                  "startTime": "2026-10-04T09:24:24.289Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1881,7 +2221,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-89fc35033cfe18c77926",
           "file": "game.spec.js",
-          "line": 123,
+          "line": 143,
           "column": 1
         },
         {
@@ -1900,12 +2240,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 844,
+                  "duration": 658,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-04T08:21:28.255Z",
+                  "startTime": "2026-10-04T09:24:25.100Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1915,7 +2255,7 @@
           ],
           "id": "8739d194ba1dcb8a2e3d-0d6a480cdd9ec0fba29d",
           "file": "game.spec.js",
-          "line": 143,
+          "line": 163,
           "column": 1
         }
       ]
@@ -1923,9 +2263,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-04T08:20:56.333Z",
-    "duration": 33094.057,
-    "expected": 46,
+    "startTime": "2026-10-04T09:23:55.027Z",
+    "duration": 31029.808,
+    "expected": 56,
     "skipped": 4,
     "unexpected": 0,
     "flaky": 0

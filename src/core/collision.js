@@ -1,7 +1,7 @@
-export function findLanding(player, platforms) {
+export function findLanding(player, platforms, departedPlatform = null) {
   let first = null;
   for (const platform of platforms) {
-    if (!platform.solid) continue;
+    if (!platform.solid || platform === departedPlatform) continue;
     const before = player.previousY + player.height - platform.previousY;
     const after = player.y + player.height - platform.y;
     const travel = after - before;

@@ -1,6 +1,6 @@
 const symbols = { normal: '━', spike: '▴▴', conveyorLeft: '≪', conveyorRight: '≫', fake: '⌁', spring: '↟' };
 const names = { normal: '普通平台', spike: '尖刺平台', conveyorLeft: '左传送带', conveyorRight: '右传送带', fake: '易碎平台', spring: '弹簧平台' };
-const hints = { normal: '安全落地 · 回复生命', spike: '落地扣血 · 站立不连扣', conveyorLeft: '向左推送 · 离开解除', conveyorRight: '向右推送 · 离开解除', fake: '落地300ms后塌陷', spring: '压缩蓄力 · 向上弹射' };
+const hints = { normal: '安全落地 · 回复生命', spike: '同一平台 · 最多扣一次', conveyorLeft: '向左推送 · 离开解除', conveyorRight: '向右推送 · 离开解除', fake: '落地300ms后塌陷', spring: '压缩蓄力 · 向上弹射' };
 
 export function formatTime(seconds) {
   return `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;

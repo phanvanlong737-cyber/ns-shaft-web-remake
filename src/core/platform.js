@@ -10,6 +10,7 @@ export class Platform {
     this.elapsed = null;
     this.state = 'idle';
     this.occupant = null;
+    this.hasDealtDamage = false;
   }
 
   get solid() { return this.state !== 'broken'; }
@@ -21,8 +22,11 @@ export class Platform {
   onLand(player, emit) {
     this.occupant = player;
     if (this.type === 'spike') {
-      const amount = player.takeDamage(this.profile.spikeDamage);
-      if (amount) emit('hurt', { amount, source: 'spike' });
+      const amount = this.hasDealtDamage ? 0 : player.takeDamage(this.profile.spikeDamage);
+      if (amount) {
+        this.hasDealtDamage = true;
+        emit('hurt', { amount, source: 'spike' });
+      }
     } else {
       const amount = player.heal(this.profile.healing);
       if (amount) emit('heal', { amount });

@@ -103,8 +103,10 @@ export class Game {
     player.vx = direction * p.moveSpeed + conveyor;
     if (direction) player.facing = direction;
     player.x = Math.min(p.width - player.width, Math.max(0, player.x + player.vx * dt));
+    let departedPlatform = null;
     if (player.support && (player.x + player.width <= player.support.x ||
         player.x >= player.support.x + player.support.width)) {
+      departedPlatform = player.support;
       player.support.onLeave(player);
     }
     // Check leaving before platform timers so walking off a spring cancels its launch.
@@ -116,7 +118,7 @@ export class Game {
     } else {
       player.y += player.vy * dt + 0.5 * p.gravity * dt * dt;
       player.vy += p.gravity * dt;
-      const landing = findLanding(player, this.platforms);
+      const landing = findLanding(player, this.platforms, departedPlatform);
       if (landing) this.land(landing);
     }
     if (player.y <= p.ceilingY) {

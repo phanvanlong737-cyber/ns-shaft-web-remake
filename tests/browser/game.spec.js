@@ -78,6 +78,26 @@ test('blur pauses and clears held movement', async ({ page }) => {
   await page.keyboard.up('ArrowLeft');
 });
 
+for (const [direction, steps] of [['right', 57], ['left', 33]]) {
+  test(`spike ${direction} edge departure preserves five HP and never shows death`, async ({ page }) => {
+    const snapshot = await page.evaluate(({ direction, steps }) => {
+      window.__TEST__.spikeEdge();
+      window.__TEST__.tick(130 / 120, {});
+      window.__TEST__.tick(steps / 120, { [direction]: true });
+      const state = window.__TEST__.snapshot();
+      window.dispatchEvent(new Event('blur'));
+      return state;
+    }, { direction, steps });
+    expect(snapshot.state).toBe('playing'); expect(snapshot.hp).toBe(5);
+    expect(snapshot.reason).toBeNull();
+    await expect(page.locator('#hp-label')).toHaveText('5 / 10');
+    await expect(page.locator('#hp')).toHaveAttribute('aria-valuenow', '5');
+    await expect(page.locator('#hp i.empty')).toHaveCount(5);
+    await expect(page.locator('#result-screen')).toBeHidden();
+    await expect(page.locator('#pause-screen')).toBeVisible();
+  });
+}
+
 test('viewport keeps physical aspect ratio and no horizontal overflow', async ({ page }) => {
   for (const size of [{ width: 1280, height: 720 }, { width: 960, height: 540 }, { width: 390, height: 844 }, { width: 844, height: 390 }]) {
     await page.setViewportSize(size);

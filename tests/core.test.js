@@ -222,6 +222,31 @@ describe('game integration', () => {
     expect(events.filter(event => event.type === 'hurt')).toHaveLength(1);
     expect(events.filter(event => event.type === 'land')).toHaveLength(1);
   });
+  test.each([['right', 57], ['left', 33]])('walking off the %s spike edge cannot re-land and kill a player with five HP', (direction, steps) => {
+    const game = playing(), platform = block('spike', 1, 100, 420);
+    game.player.x = game.player.previousX = 120;
+    game.platforms = [platform]; game.land(platform);
+    for (let i = 0; i < 130; i++) game.update(p.step, {});
+    game.drainEvents();
+    for (let i = 0; i < steps; i++) game.update(p.step, { [direction]: true });
+    if (direction === 'right') expect(game.player.x).toBeGreaterThan(200);
+    else expect(game.player.x + game.player.width).toBeLessThan(100);
+    expect(game.player.y).toBeGreaterThan(100);
+    expect(game.state).toBe('playing'); expect(game.player.hp).toBe(5);
+    expect(game.player.support).toBeNull(); expect(platform.occupant).toBeNull();
+    expect(game.drainEvents().filter(event => ['hurt', 'land', 'game_over'].includes(event.type))).toEqual([]);
+  });
+  test('the same spike can damage only once per run even after leaving and landing again', () => {
+    const hero = new Player(p), spike = block('spike', 1);
+    hero.support = spike; spike.onLand(hero, noop);
+    expect(hero.hp).toBe(5);
+    spike.onLeave(hero); hero.invincible = 0;
+    hero.support = spike; spike.onLand(hero, noop);
+    expect(hero.hp).toBe(5);
+    spike.onLeave(hero);
+    block('spike', 2).onLand(hero, noop);
+    expect(hero.hp).toBe(0);
+  });
   test.each([[true, 0], [true, 1], [false, 1]])('ceiling kills once (supported=%s, immunity=%s)', (supported, immunity) => {
     const game = playing(), platform = block('normal', 1, 100, 30);
     if (supported) { game.platforms = [platform]; game.land(platform); }

@@ -1,4 +1,5 @@
 import { Game } from './core/game.js';
+import { Platform } from './core/platform.js';
 import { FixedLoop } from './core/loop.js';
 import { SaveStore } from './data/save.js';
 import { Input } from './ui/input.js';
@@ -124,6 +125,13 @@ requestAnimationFrame(frame);
 if (import.meta.env.DEV && new URLSearchParams(location.search).get('test') === '1') {
   window.__TEST__ = {
     start,
+    spikeEdge: () => {
+      start(42);
+      const platform = new Platform('spike', 1, 100, 420, game.profile);
+      game.platforms = [platform];
+      game.player.x = game.player.previousX = 120;
+      game.land(platform);
+    },
     snapshot: () => ({ ...game.snapshot(store.data.bestFloor), x: game.player?.x,
       y: game.player?.y, platformCount: game.platforms.length, input: input.read(),
       particleCount: renderer.particles.length, audioNodes: audio.nodes.size, renderedFrames }),
