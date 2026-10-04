@@ -1,0 +1,11 @@
+asset,source,author,license,modified,status
+public/assets/player.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/background.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/logo.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/platform_normal.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/platform_spike.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/platform_fake.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/platform_spring.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/platform_conveyorLeft.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+public/assets/platform_conveyorRight.svg,tools/generate-assets.mjs,NS-SHAFT Web Remake contributors,MIT,No,APPROVED
+src/rendering/audio.js,Original oscillator synthesis,NS-SHAFT Web Remake contributors,MIT,No,APPROVED

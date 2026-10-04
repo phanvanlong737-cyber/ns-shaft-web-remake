@@ -17,7 +17,8 @@ test('menu, play, simultaneous inputs, pause and restart', async ({ page }) => {
   await page.keyboard.press('Space'); await expect(page.locator('#pause-screen')).toBeVisible();
   const frozen = await page.evaluate(() => window.__TEST__.snapshot());
   await page.waitForTimeout(150);
-  expect(await page.evaluate(() => window.__TEST__.snapshot())).toEqual(frozen);
+    const after = await page.evaluate(() => window.__TEST__.snapshot());
+    for (const key of ['state', 'hp', 'floor', 'runTime', 'x', 'y', 'input', 'platformCount']) expect(after[key]).toEqual(frozen[key]);
   await page.getByRole('button', { name: '继续下潜' }).click();
   await expect(page.locator('#pause-screen')).toBeHidden();
   await page.keyboard.press('Escape');
@@ -99,4 +100,51 @@ test('touch pointer cancellation releases movement', async ({ page }, info) => {
   await left.dispatchEvent('pointercancel', { pointerId: 1, pointerType: 'touch' });
   expect(await page.evaluate(() => window.__TEST__.snapshot().input.left)).toBe(false);
   await page.mouse.up();
+});
+
+test('all original assets load and audio starts only after a gesture', async ({ page }) => {
+  const failures = [];
+  page.on('response', response => { if (response.status() >= 400) failures.push(response.url()); });
+  await page.reload();
+  await page.getByRole('button', { name: '开始下潜' }).click();
+  await page.waitForTimeout(200);
+  const snapshot = await page.evaluate(() => window.__TEST__.snapshot());
+  expect(snapshot.audioNodes).toBeGreaterThan(0);
+  expect(snapshot.audioNodes).toBeLessThan(20);
+  for (const asset of ['player', 'background', 'platform_normal', 'platform_spike', 'platform_fake',
+    'platform_spring', 'platform_conveyorLeft', 'platform_conveyorRight', 'logo']) {
+    const response = await page.request.get(`/assets/${asset}.svg`);
+    expect(response.ok()).toBe(true); expect(await response.text()).toContain('<svg');
+  }
+  expect(failures).toEqual([]);
+});
+
+test('reduced motion and sound settings do not change seeded rule results', async ({ page }) => {
+  const results = [];
+  for (const reduced of [false, true]) {
+    await page.getByRole('button', { name: '设置', exact: true }).first().click();
+    await page.getByLabel('减少动画', { exact: true }).setChecked(reduced);
+    await page.getByLabel('静音', { exact: true }).setChecked(reduced);
+    await page.getByRole('button', { name: '关闭面板' }).click();
+    const snapshot = await page.evaluate(() => {
+      window.__TEST__.start(511);
+      window.__TEST__.tick(1, { right: true });
+      window.dispatchEvent(new Event('blur'));
+      const state = window.__TEST__.snapshot();
+      return { floor: state.floor, hp: state.hp, runTime: state.runTime, x: state.x, y: state.y };
+    });
+    results.push(snapshot);
+    await page.getByRole('button', { name: '返回菜单', exact: true }).first().click();
+  }
+  expect(results[0]).toEqual(results[1]);
+});
+
+test('repeated restarting never multiplies input actions', async ({ page }) => {
+  for (let i = 0; i < 12; i++) {
+    await page.evaluate(() => window.__TEST__.start(1));
+    await page.keyboard.press('Space');
+    await expect(page.locator('#pause-screen')).toBeVisible();
+    await page.keyboard.press('Space');
+    await expect(page.locator('#pause-screen')).toBeHidden();
+  }
 });

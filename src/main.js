@@ -18,6 +18,7 @@ const store = new SaveStore(storage);
 const audio = new AudioSystem(store.data.settings);
 let runKey = '';
 let previous = performance.now();
+let renderedFrames = 0;
 
 function pause() {
   if (game.state !== 'playing') return;
@@ -96,6 +97,7 @@ renderer.ready.then(() => {
   if (renderer.failedAssets.length) view.toast('部分图形加载失败，请刷新页面。');
 });
 function frame(now) {
+  renderedFrames++;
   const seconds = Math.max(0, (now - previous) / 1000);
   const alpha = loop.advance(seconds, input.read());
   previous = now;
@@ -123,11 +125,16 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).get('test') === 
   window.__TEST__ = {
     start,
     snapshot: () => ({ ...game.snapshot(store.data.bestFloor), x: game.player?.x,
-      y: game.player?.y, platformCount: game.platforms.length, input: input.read() }),
+      y: game.player?.y, platformCount: game.platforms.length, input: input.read(),
+      particleCount: renderer.particles.length, audioNodes: audio.nodes.size, renderedFrames }),
     die: reason => game.die(reason),
     milestone: () => { game.floor = 100; game.completed = true; game.emit('challenge_complete'); },
     tick: (seconds, actions) => {
       for (let i = 0; i < Math.round(seconds / game.profile.step); i++) game.update(game.profile.step, actions);
     },
+    world: () => ({ player: { x: game.player?.x, y: game.player?.y,
+      vy: game.player?.vy, supportSeq: game.player?.support?.seq },
+      platforms: game.platforms.map(platform => ({ type: platform.type, seq: platform.seq,
+        x: platform.x, y: platform.y, width: platform.width, solid: platform.solid })) }),
   };
 }
