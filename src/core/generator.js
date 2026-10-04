@@ -12,7 +12,8 @@ export class PlatformGenerator {
     const p = this.profile;
     // Leave with platform velocity: relative initial vertical velocity is zero.
     const fallSeconds = Math.sqrt(2 * p.platformGap / p.gravity);
-    const reach = p.moveSpeed * fallSeconds + p.platformWidth / 2 + p.playerSize / 2 - 1;
+    // Permit a route from an edge-standing position, not an easy center-to-center chain.
+    const reach = p.moveSpeed * fallSeconds + p.platformWidth + p.playerSize - 1;
     return [Math.max(0, previous.x - reach),
       Math.min(p.width - p.platformWidth, previous.x + reach)];
   }

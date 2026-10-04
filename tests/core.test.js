@@ -61,7 +61,7 @@ describe('platform mechanisms', () => {
   });
   test('spike damages instead of healing', () => {
     const hero = new Player(p); block('spike').onLand(hero, noop);
-    expect(hero.hp).toBe(6);
+    expect(hero.hp).toBe(5);
   });
   test('fake timer persists across leaving and relanding', () => {
     const hero = new Player(p), platform = block('fake');
@@ -130,6 +130,13 @@ describe('generation', () => {
 });
 
 describe('game integration', () => {
+  test('movement requires commitment: 250ms moves 27.5px, not half a platform', () => {
+    const game = playing(), start = game.player.x;
+    for (let i = 0; i < 30; i++) game.update(p.step, { right: true });
+    expect(game.player.x - start).toBeCloseTo(27.5, 6);
+    const spike = block('spike'); game.land(spike);
+    expect(game.player.hp).toBe(5);
+  });
   test('landing progression is monotonic, skips depth, and celebrates only once', () => {
     const game = playing();
     game.land(block('normal', 505));
