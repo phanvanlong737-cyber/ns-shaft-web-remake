@@ -87,12 +87,12 @@ def main():
         print(json.dumps({'status': code, 'runs': runs, 'pagesStatus': pages_code,
                           'pagesUrl': pages.get('html_url')}, indent=2))
     elif args.action == 'release':
-        tag = 'v1.0.0-rc.1'
+        tag = 'v' + json.loads((ROOT / 'package.json').read_text(encoding='utf-8'))['version']
         code, result = api(token, base + '/releases/tags/' + tag)
         if code == 404:
             body = (ROOT / 'docs' / 'release-notes.md').read_text(encoding='utf-8')
             code, result = api(token, base + '/releases', 'POST', {'tag_name': tag,
-                'target_commitish': 'main', 'name': '下100层 v1.0.0-rc.1', 'body': body,
+                'target_commitish': 'main', 'name': '下100层 ' + tag, 'body': body,
                 'draft': False, 'prerelease': True})
         print(json.dumps({'status': code, 'releaseUrl': result.get('html_url'), 'message': result.get('message')}))
 

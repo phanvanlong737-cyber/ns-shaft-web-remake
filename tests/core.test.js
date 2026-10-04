@@ -130,21 +130,29 @@ describe('generation', () => {
 });
 
 describe('game integration', () => {
-  test('movement requires commitment: 250ms moves 27.5px, not half a platform', () => {
+  test('responsive movement: 250ms moves 42.5px while spike danger remains', () => {
     const game = playing(), start = game.player.x;
     for (let i = 0; i < 30; i++) game.update(p.step, { right: true });
-    expect(game.player.x - start).toBeCloseTo(27.5, 6);
+    expect(game.player.x - start).toBeCloseTo(42.5, 6);
     const spike = block('spike'); game.land(spike);
     expect(game.player.hp).toBe(5);
   });
   test('landing progression is monotonic, skips depth, and celebrates only once', () => {
     const game = playing();
     game.land(block('normal', 505));
-    expect(game.floor).toBe(101); expect(game.scrollSpeed).toBe(200);
+    expect(game.floor).toBe(101); expect(game.scrollSpeed).toBe(420);
     game.land(block('normal', 100)); game.land(block('normal', 510));
     expect(game.floor).toBe(102);
     expect(game.drainEvents().filter(e => e.type === 'challenge_complete')).toHaveLength(1);
     expect(game.state).toBe('playing');
+  });
+  test('scroll accelerates every five floors and continues after floor 100', () => {
+    const game = playing();
+    for (const [floor, speed] of [[0, 140], [4, 140], [5, 154], [10, 168], [50, 280], [100, 420], [105, 434]]) {
+      game.land(block('normal', floor * p.platformsPerFloor));
+      expect(game.floor).toBe(floor);
+      expect(game.scrollSpeed).toBeCloseTo(speed, 8);
+    }
   });
   test('standing does not repeatedly heal or register a landing', () => {
     const game = playing(); game.player.hp = 5;
