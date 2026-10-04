@@ -30,6 +30,8 @@ jobs:
         run: |
           sudo apt-get install -y pulseaudio
           pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=ci
+          pactl set-default-sink ci
       - run: npm run test:e2e
       - run: node tools/verify-build.mjs
       - uses: actions/configure-pages@v5

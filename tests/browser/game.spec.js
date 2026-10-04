@@ -106,8 +106,9 @@ test('all original assets load and audio starts only after a gesture', async ({ 
   const failures = [];
   page.on('response', response => { if (response.status() >= 400) failures.push(response.url()); });
   await page.reload();
+  expect(await page.evaluate(() => window.__TEST__.snapshot().audioNodes)).toBe(0);
   await page.getByRole('button', { name: '开始下潜' }).click();
-  await page.waitForTimeout(200);
+  await expect.poll(() => page.evaluate(() => window.__TEST__.snapshot().audioNodes)).toBeGreaterThan(0);
   const snapshot = await page.evaluate(() => window.__TEST__.snapshot());
   expect(snapshot.audioNodes).toBeGreaterThan(0);
   expect(snapshot.audioNodes).toBeLessThan(20);
